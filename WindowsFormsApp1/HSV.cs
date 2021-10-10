@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-enum TypeValue
-{
-    DEGREES, PERSENT, PORTION, 
-}
 
 enum TypeColor
 {
@@ -17,160 +9,227 @@ namespace WindowsFormsApp1
 {
     class HSV
     {
-        private double hue;         //Цветовой тон
-        private double saturation;  //Насыщенность
-        private double brighteness; //Яркость
-
-        private TypeValue typeHue;        //Тип данных для цвета (доступно 3 типа)
-        private TypeValue typeSaturation; //Тип данных для насыщенности (доступно 2 типа)
-        private TypeValue typeBright;     //Тип данных для Яркости (доступно 2 типа)
-
         private TypeColor CurrentColor;
         private String messageAboutError;
-        public HSV(short hue, short saturation, short brighteness)
+        public HSV()
         {
-            typeHue = TypeValue.DEGREES;
-            typeSaturation = TypeValue.PERSENT;
-            typeBright = TypeValue.PERSENT;
-
-            this.hue = hue;
-            this.saturation = saturation;
-            this.brighteness = brighteness;
-        }
-        public void setHSB(TypeValue typeHue, TypeValue typeSaturation, TypeValue typeBright)
-        {
-            this.typeHue = typeHue;
-            this.typeSaturation = typeSaturation;
-            this.typeBright = typeBright;
+           
         }
 
-        public void setTypeHue(TypeValue typeHue)
-        {
-            this.typeHue = typeHue;
-        }
-        public void setTypeSaturation(TypeValue typeSaturation)
-        {
-            this.typeSaturation = typeSaturation;
-        }
-        public void setTypeValue(TypeValue typeBright)
-        {
-            this.typeBright = typeBright;
-        }
-
-        private double colorToDegrees(double color)
+        public double convertColorToDegrees(String typeDate,double colorValue) //Конвертировать цвет в градусы
         {
             double colorDegrees = 0;
 
-            switch (typeHue)
+            switch (typeDate)
             {
-                case TypeValue.DEGREES:
-                    colorDegrees = color;
+                case "degr.":
+                    colorDegrees = colorValue;
                     break;
-                case TypeValue.PERSENT:
-                    colorDegrees = 360/100 * color;
+                case "%":
+                    colorDegrees = 360d / 100 * colorValue;
                     break;
-                case TypeValue.PORTION:
-                    colorDegrees = 360 * color;
+                case "pt.":
+                    colorDegrees = 360d * colorValue;
                     break;
             }
             return colorDegrees;
         }
 
-        private double plusMinusColor(double value, bool plus)
+        public double convertValueToPersent(String typeDate, double value)
         {
-            double color;
+            double toPersent = value;
 
-            if (plus)
+            if(typeDate == "pt.")
             {
-                color = hue + value;
+                toPersent = 100 * value;
             }
-            else
-                color = hue - value;
-
-            return color;
+            return toPersent;
         }
-        public String checkColor(double value, bool plus)
-        {
-            String messageAboutError = "";
-            double color = plusMinusColor(value, plus);
-  
-            color = colorToDegrees(color);
 
-            if (color > 360)
-                messageAboutError = "Ошибка!Некорректно задано значение цвета: " +
-                    $"{ color}(> 360 град.)";
-            else if (color < 0)
-                messageAboutError = $"Ошибка!Диапазон цвета:{color} < 0";
-            else
+        public double plusMinusValue(double currentValue, String sign, double increaseOn) //Прибавить, вычесть цвет
+        {
+            double endValue = currentValue;
+
+            switch (sign)
             {
-                switch (CurrentColor)
+                case "+":
+                    endValue = currentValue + increaseOn;
+                    break;
+                case "-":
+                    endValue = currentValue - increaseOn;
+                    break;
+            }
+
+            return endValue;
+        }
+        public bool colorInItsRange(double colorValue, String currentColor, String typeDate)
+        {        //Проверяем корректность диапазона цвета, в соответствии с выбранным типом цвета.
+            Checker check = new Checker();
+            bool colorValid = false;
+            double colorDegrees;
+
+                saveTypeColor(currentColor);                                //Сохранить тип текущего цвета(RGB)
+                colorDegrees = convertColorToDegrees(typeDate, colorValue); //Коневертируем цвет в градусы, для просмтрода диапазона
+
+                switch (CurrentColor)                                       //Входит ли цвет в свой диапазон
                 {
                     case TypeColor.RED:
-                        messageAboutError =  checkDiapasonRed(color);
+                        colorValid = diapasonIsRed(colorDegrees);  //Если занчение входит в диапазон красного цвета
                         break;
                     case TypeColor.GREEN:
-                        messageAboutError = checkDiapasonGreen(color);
+                        colorValid = diapasonIsGreen(colorDegrees); //Если занчение входит в диапазон зеленого цвета
                         break;
                     case TypeColor.BLUE:
-                        messageAboutError = checkDiapasonBlue(color);
+                        colorValid = diapasonIsBlue(colorDegrees);  //Если занчение входит в диапазон синего цвета
                         break;
                 }
-            }
-            return messageAboutError;
-        }
-        public String checkDiapasonRed(double color)
-        {
-            String messageAboutError = "";
-
-            if (!(color < 120 || color == 360))
-                messageAboutError = $"Значение цвета({color}) превысило краcный диапазон цвета(0 - 120, 360 град.)";
-
-            return messageAboutError;
-        }
-        public String checkDiapasonGreen(double color)
-        {
-            String messageAboutError = "";
-
-            if (!(color >= 120 && color < 240))
-                messageAboutError = $"Значение цвета({color}) превысило зеленый диапазон цвета(120-240 град.)";
-            return messageAboutError;
-        }
-        public String checkDiapasonBlue(double color)
-        {
-            String messageAboutError = "";
-            if (!(color >= 240 && color < 360))
-                messageAboutError = $"Значение цвета({color}) превысило синий диапазон цвета(240-360 град.)";
-            return messageAboutError;
-        }
-
-        public bool checkCorrDatesField(String field,int numField)
-        {
-            bool isNumber = false;
-            double number;
-
-            try
-            {
-                number = Convert.ToDouble(field);
-                if (number < 0)
-                {
-                    messageAboutError = "Ошибка!Значение не может быть отрицательным.Введите число > 0)+" +
-                        $"Проверьте поле №{numField}";
-                }  
-                else 
-                   isNumber = true;
-            }
-            catch (FormatException)
-            {
-                messageAboutError = $"Ошибка!Введены недопустимые символы: " + field + ".Введите числовой тип данных)"+
-                    $"Проверьте поле №{numField}";
             
+            return colorValid;
+
+        }
+        private bool diapasonIsRed(double color)
+        {
+            bool colorValid =  false;
+
+            if (color < 120 || color == 360)
+            {
+                colorValid =  true;
             }
-            return isNumber;
+            else
+            {
+                messageAboutError = $"Значение цвета({color}) не входит в диапазон красного цвета(0 - 120, 360 град.)";
+            }
+
+            return colorValid;
+        }
+        private bool diapasonIsGreen(double color)
+        {
+            bool colorValid = false;
+
+            if (color >= 120 && color < 240)
+            {
+                colorValid = true;
+            }
+            else
+            {
+                messageAboutError = $"Значение цвета({color}) не входит в диапазон зеленого цвета(120-240 град.)";
+            }
+            return colorValid;
+        }
+        private bool diapasonIsBlue(double color)
+        {
+            bool colorValid = false;
+
+            if (color >= 240 && color < 360)
+            {
+                colorValid = true;
+            }
+            else
+            {
+                messageAboutError = $"Значение цвета({color}) не входит в диапазон синего цвета(240-360 град.)";
+            }
+            return colorValid;
+        }
+
+        private void saveTypeColor(String typeColor)
+        {
+            switch (typeColor)
+            {
+                case "Red":
+                    CurrentColor = TypeColor.RED;
+                    break;
+                case "Green":
+                    CurrentColor = TypeColor.GREEN;
+                    break;
+                case "Blue":
+                    CurrentColor = TypeColor.BLUE;
+                    break;
+            }
+        }
+        public int diapasonTypeOfColor(double value, string unit)   //Проверить входит ли число
+        {                                                           //в диапазон("degr", "%", "pt")  
+            int typeColor = 0;                                      //(0 - red, 1 - green, 2 - blue)
+            double valueInDegree = convertColorToDegrees(unit,value);
+
+            if (valueInDegree < 120 || valueInDegree == 360)
+            {
+                typeColor = 0;
+            }
+            else if (valueInDegree >= 120 && valueInDegree < 240)
+            {
+                typeColor = 1;
+            }
+            else if (valueInDegree >= 240 && valueInDegree < 360)
+            {
+                typeColor = 2;
+
+            }
+            else typeColor = -1;
+
+            return typeColor;
+        }
+       public String typeColorByIndex(int index)
+        {
+            String colorGrad = "";
+
+            switch (index)
+            {
+                case 0:
+                    colorGrad = "0";
+                    break;
+                case 1:
+                    colorGrad = "120";
+                    break;
+                case 2:
+                    colorGrad = "240";
+                    break;
+            }
+            return colorGrad;
         }
         public String getMessageError()
         {
             return messageAboutError;
         }
-       
+
+        public int[] HSVtoRGB(double colorInDegrees,double saturInPersent, double brightInPersent)
+        {
+            int[] RGB = null;
+
+            //int j = (int)Math.Round(212.5,0, MidpointRounding.ToEven);
+            int Hi = (int)((colorInDegrees / 60) % 6);
+            float Vmin = (float)((100 - saturInPersent) * brightInPersent) / 100;
+            float a = ((float)brightInPersent - Vmin) * (float)((colorInDegrees % 60) / 60);
+
+            float Vinc =(Vmin + a);
+            float Vdec = ((float)brightInPersent - a);
+
+            int V = (int)Math.Round(brightInPersent * 255 / 100, MidpointRounding.AwayFromZero);
+            int _Vmin = (int)Math.Round((Vmin * 255 / 100), MidpointRounding.AwayFromZero);
+            int _Vinc = (int)Math.Round((Vinc * 255 / 100), MidpointRounding.AwayFromZero); //212,52 = 213
+            int _Vdec = (int)Math.Round((Vdec * 255 / 100), MidpointRounding.AwayFromZero);
+
+            switch (Hi)
+            {
+                case 0:
+                    RGB = new int[] { V, _Vinc, _Vmin };
+                    break;
+                case 1:
+                    RGB = new int[] { _Vdec, V, _Vmin };
+                    break;
+                case 2:
+                    RGB = new int[] { _Vmin, V, _Vinc };
+                    break;
+                case 3:
+                    RGB = new int[] { _Vmin, _Vdec, V };
+                    break;
+                case 4:
+                    RGB = new int[] { _Vinc, _Vmin, V };
+                    break;
+                case 5:
+                    RGB = new int[] { V, _Vmin, _Vdec };
+                    break;
+            }
+            return RGB;
+        }
     }
 }

@@ -33,37 +33,49 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.textBoxColor1 = new System.Windows.Forms.TextBox();
+            this.textBoxSaturation1 = new System.Windows.Forms.TextBox();
+            this.textBoxBright1 = new System.Windows.Forms.TextBox();
+            this.comboBoxDates1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDates2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDates3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSymbol1 = new System.Windows.Forms.ComboBox();
+            this.textBoxColor2 = new System.Windows.Forms.TextBox();
+            this.comboBoxSymbol2 = new System.Windows.Forms.ComboBox();
+            this.textBoxSaturation2 = new System.Windows.Forms.TextBox();
+            this.textBoxBright2 = new System.Windows.Forms.TextBox();
+            this.comboBoxSymbol3 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxRGB = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxV = new System.Windows.Forms.TextBox();
+            this.textBoxS = new System.Windows.Forms.TextBox();
+            this.textBoxH = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(406, 385);
+            this.button1.Location = new System.Drawing.Point(146, 104);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 47);
+            this.button1.Size = new System.Drawing.Size(77, 32);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "toRGB";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -86,188 +98,342 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 11);
+            this.label3.Location = new System.Drawing.Point(123, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Яркость";
             // 
-            // textBox1
+            // textBoxColor1
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 22);
-            this.textBox1.TabIndex = 4;
+            this.textBoxColor1.Location = new System.Drawing.Point(123, 32);
+            this.textBoxColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxColor1.Name = "textBoxColor1";
+            this.textBoxColor1.Size = new System.Drawing.Size(52, 22);
+            this.textBoxColor1.TabIndex = 4;
+            this.textBoxColor1.Tag = "1";
+            this.textBoxColor1.TextChanged += new System.EventHandler(this.textBoxColor1_TextChanged);
+            this.textBoxColor1.Leave += new System.EventHandler(this.textBoxColor1_Leave);
             // 
-            // textBox2
+            // textBoxSaturation1
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 22);
-            this.textBox2.TabIndex = 5;
+            this.textBoxSaturation1.Location = new System.Drawing.Point(123, 27);
+            this.textBoxSaturation1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSaturation1.Name = "textBoxSaturation1";
+            this.textBoxSaturation1.Size = new System.Drawing.Size(49, 22);
+            this.textBoxSaturation1.TabIndex = 5;
+            this.textBoxSaturation1.Tag = "3";
+            this.textBoxSaturation1.TextChanged += new System.EventHandler(this.textBoxSaturation1_TextChanged);
+            this.textBoxSaturation1.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // textBox3
+            // textBoxBright1
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 31);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(50, 22);
-            this.textBox3.TabIndex = 6;
+            this.textBoxBright1.Location = new System.Drawing.Point(124, 31);
+            this.textBoxBright1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxBright1.Name = "textBoxBright1";
+            this.textBoxBright1.Size = new System.Drawing.Size(49, 22);
+            this.textBoxBright1.TabIndex = 6;
+            this.textBoxBright1.Tag = "5";
+            this.textBoxBright1.TextChanged += new System.EventHandler(this.textBoxBright1_TextChanged);
+            this.textBoxBright1.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // comboBox1
+            // comboBoxDates1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Red",
-            "Green",
-            "Blue"});
-            this.comboBox1.Location = new System.Drawing.Point(9, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 24);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBoxDates1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates1.FormattingEnabled = true;
+            this.comboBoxDates1.Items.AddRange(new object[] {
             "degr.",
             "%",
             "pt."});
-            this.comboBox2.Location = new System.Drawing.Point(179, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(49, 24);
-            this.comboBox2.TabIndex = 8;
+            this.comboBoxDates1.Location = new System.Drawing.Point(179, 30);
+            this.comboBoxDates1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDates1.Name = "comboBoxDates1";
+            this.comboBoxDates1.Size = new System.Drawing.Size(73, 24);
+            this.comboBoxDates1.TabIndex = 8;
+            this.comboBoxDates1.SelectedIndexChanged += new System.EventHandler(this.comboBoxDates1_SelectedIndexChanged);
             // 
-            // comboBox3
+            // comboBoxDates2
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBoxDates2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates2.FormattingEnabled = true;
+            this.comboBoxDates2.Items.AddRange(new object[] {
             "%",
             "pt."});
-            this.comboBox3.Location = new System.Drawing.Point(179, 25);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(48, 24);
-            this.comboBox3.TabIndex = 9;
+            this.comboBoxDates2.Location = new System.Drawing.Point(179, 25);
+            this.comboBoxDates2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDates2.Name = "comboBoxDates2";
+            this.comboBoxDates2.Size = new System.Drawing.Size(73, 24);
+            this.comboBoxDates2.TabIndex = 9;
+            this.comboBoxDates2.SelectedIndexChanged += new System.EventHandler(this.comboBoxDates2_SelectedIndexChanged);
             // 
-            // comboBox4
+            // comboBoxDates3
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBoxDates3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates3.FormattingEnabled = true;
+            this.comboBoxDates3.Items.AddRange(new object[] {
             "%",
             "pt."});
-            this.comboBox4.Location = new System.Drawing.Point(180, 29);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(48, 24);
-            this.comboBox4.TabIndex = 10;
+            this.comboBoxDates3.Location = new System.Drawing.Point(180, 30);
+            this.comboBoxDates3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDates3.Name = "comboBoxDates3";
+            this.comboBoxDates3.Size = new System.Drawing.Size(73, 24);
+            this.comboBoxDates3.TabIndex = 10;
+            this.comboBoxDates3.SelectedIndexChanged += new System.EventHandler(this.comboBoxDates3_SelectedIndexChanged);
             // 
-            // comboBox5
+            // comboBoxSymbol1
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.comboBoxSymbol1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol1.FormattingEnabled = true;
+            this.comboBoxSymbol1.Items.AddRange(new object[] {
             "+",
             "-"});
-            this.comboBox5.Location = new System.Drawing.Point(54, 69);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(49, 24);
-            this.comboBox5.TabIndex = 11;
+            this.comboBoxSymbol1.Location = new System.Drawing.Point(64, 69);
+            this.comboBoxSymbol1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxSymbol1.Name = "comboBoxSymbol1";
+            this.comboBoxSymbol1.Size = new System.Drawing.Size(49, 24);
+            this.comboBoxSymbol1.TabIndex = 11;
+            this.comboBoxSymbol1.Tag = "1";
+            this.comboBoxSymbol1.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbol1_SelectedIndexChanged);
             // 
-            // textBox4
+            // textBoxColor2
             // 
-            this.textBox4.Location = new System.Drawing.Point(122, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(52, 22);
-            this.textBox4.TabIndex = 12;
+            this.textBoxColor2.Location = new System.Drawing.Point(123, 69);
+            this.textBoxColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxColor2.Name = "textBoxColor2";
+            this.textBoxColor2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxColor2.TabIndex = 12;
+            this.textBoxColor2.Tag = "2";
+            this.textBoxColor2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // comboBox6
+            // comboBoxSymbol2
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.comboBoxSymbol2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol2.FormattingEnabled = true;
+            this.comboBoxSymbol2.Items.AddRange(new object[] {
             "+",
             "-"});
-            this.comboBox6.Location = new System.Drawing.Point(55, 65);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(49, 24);
-            this.comboBox6.TabIndex = 13;
+            this.comboBoxSymbol2.Location = new System.Drawing.Point(68, 44);
+            this.comboBoxSymbol2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxSymbol2.Name = "comboBoxSymbol2";
+            this.comboBoxSymbol2.Size = new System.Drawing.Size(49, 24);
+            this.comboBoxSymbol2.TabIndex = 13;
+            this.comboBoxSymbol2.Tag = "2";
+            this.comboBoxSymbol2.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbol2And3_SelectedIndexChanged);
             // 
-            // textBox5
+            // textBoxSaturation2
             // 
-            this.textBox5.Location = new System.Drawing.Point(123, 67);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(52, 22);
-            this.textBox5.TabIndex = 14;
+            this.textBoxSaturation2.Location = new System.Drawing.Point(123, 66);
+            this.textBoxSaturation2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSaturation2.Name = "textBoxSaturation2";
+            this.textBoxSaturation2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxSaturation2.TabIndex = 14;
+            this.textBoxSaturation2.Tag = "4";
+            this.textBoxSaturation2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // textBox6
+            // textBoxBright2
             // 
-            this.textBox6.Location = new System.Drawing.Point(122, 70);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(52, 22);
-            this.textBox6.TabIndex = 16;
+            this.textBoxBright2.Location = new System.Drawing.Point(123, 70);
+            this.textBoxBright2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxBright2.Name = "textBoxBright2";
+            this.textBoxBright2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxBright2.TabIndex = 16;
+            this.textBoxBright2.Tag = "6";
+            this.textBoxBright2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // comboBox7
+            // comboBoxSymbol3
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.comboBoxSymbol3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol3.FormattingEnabled = true;
+            this.comboBoxSymbol3.Items.AddRange(new object[] {
             "+",
             "-"});
-            this.comboBox7.Location = new System.Drawing.Point(54, 68);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(49, 24);
-            this.comboBox7.TabIndex = 15;
+            this.comboBoxSymbol3.Location = new System.Drawing.Point(69, 50);
+            this.comboBoxSymbol3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxSymbol3.Name = "comboBoxSymbol3";
+            this.comboBoxSymbol3.Size = new System.Drawing.Size(49, 24);
+            this.comboBoxSymbol3.TabIndex = 15;
+            this.comboBoxSymbol3.Tag = "3";
+            this.comboBoxSymbol3.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbol2And3_SelectedIndexChanged);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.comboBoxDates1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.comboBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Location = new System.Drawing.Point(25, 38);
+            this.panel1.Controls.Add(this.textBoxColor1);
+            this.panel1.Controls.Add(this.comboBoxColor);
+            this.panel1.Controls.Add(this.comboBoxSymbol1);
+            this.panel1.Controls.Add(this.textBoxColor2);
+            this.panel1.Location = new System.Drawing.Point(21, 22);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 108);
+            this.panel1.Size = new System.Drawing.Size(273, 107);
             this.panel1.TabIndex = 17;
+            // 
+            // comboBoxColor
+            // 
+            this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Items.AddRange(new object[] {
+            "Red",
+            "Green",
+            "Blue"});
+            this.comboBoxColor.Location = new System.Drawing.Point(19, 30);
+            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(95, 24);
+            this.comboBoxColor.TabIndex = 7;
+            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.comboBoxDates2);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.comboBox6);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Location = new System.Drawing.Point(25, 152);
+            this.panel2.Controls.Add(this.textBoxSaturation1);
+            this.panel2.Controls.Add(this.comboBoxSymbol2);
+            this.panel2.Controls.Add(this.textBoxSaturation2);
+            this.panel2.Location = new System.Drawing.Point(21, 149);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(273, 108);
+            this.panel2.Size = new System.Drawing.Size(273, 107);
             this.panel2.TabIndex = 18;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboBox4);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.comboBoxDates3);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.comboBox7);
-            this.panel3.Location = new System.Drawing.Point(25, 279);
+            this.panel3.Controls.Add(this.textBoxBright1);
+            this.panel3.Controls.Add(this.textBoxBright2);
+            this.panel3.Controls.Add(this.comboBoxSymbol3);
+            this.panel3.Location = new System.Drawing.Point(21, 277);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(273, 108);
+            this.panel3.Size = new System.Drawing.Size(273, 107);
             this.panel3.TabIndex = 19;
             // 
-            // panel4
+            // label4
             // 
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Controls.Add(this.panel1);
-            this.panel4.Location = new System.Drawing.Point(27, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(325, 420);
-            this.panel4.TabIndex = 20;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(6, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "RGB";
+            // 
+            // textBoxRGB
+            // 
+            this.textBoxRGB.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxRGB.Location = new System.Drawing.Point(55, 64);
+            this.textBoxRGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxRGB.Name = "textBoxRGB";
+            this.textBoxRGB.ReadOnly = true;
+            this.textBoxRGB.Size = new System.Drawing.Size(168, 25);
+            this.textBoxRGB.TabIndex = 22;
+            this.textBoxRGB.Tag = "1";
+            this.textBoxRGB.Text = "rgb(0, 0, 0)";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Location = new System.Drawing.Point(270, 13);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(316, 401);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "HSB";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBoxV);
+            this.groupBox2.Controls.Add(this.textBoxS);
+            this.groupBox2.Controls.Add(this.textBoxH);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textBoxRGB);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(13, 151);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(239, 157);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "HSV->RGB";
+            // 
+            // textBoxV
+            // 
+            this.textBoxV.Location = new System.Drawing.Point(171, 30);
+            this.textBoxV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxV.Name = "textBoxV";
+            this.textBoxV.ReadOnly = true;
+            this.textBoxV.Size = new System.Drawing.Size(52, 22);
+            this.textBoxV.TabIndex = 26;
+            this.textBoxV.Tag = "2";
+            this.textBoxV.Text = "0";
+            this.textBoxV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxS
+            // 
+            this.textBoxS.Location = new System.Drawing.Point(113, 30);
+            this.textBoxS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxS.Name = "textBoxS";
+            this.textBoxS.ReadOnly = true;
+            this.textBoxS.Size = new System.Drawing.Size(52, 22);
+            this.textBoxS.TabIndex = 25;
+            this.textBoxS.Tag = "2";
+            this.textBoxS.Text = "0";
+            this.textBoxS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxH
+            // 
+            this.textBoxH.Location = new System.Drawing.Point(55, 30);
+            this.textBoxH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxH.Name = "textBoxH";
+            this.textBoxH.ReadOnly = true;
+            this.textBoxH.Size = new System.Drawing.Size(52, 22);
+            this.textBoxH.TabIndex = 24;
+            this.textBoxH.Tag = "2";
+            this.textBoxH.Text = "0";
+            this.textBoxH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(7, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "HSV";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(126, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(126, 114);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 450);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(601, 427);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -276,7 +442,10 @@ namespace WindowsFormsApp1
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,23 +456,31 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.TextBox textBoxColor1;
+        private System.Windows.Forms.TextBox textBoxSaturation1;
+        private System.Windows.Forms.TextBox textBoxBright1;
+        private System.Windows.Forms.ComboBox comboBoxDates1;
+        private System.Windows.Forms.ComboBox comboBoxDates2;
+        private System.Windows.Forms.ComboBox comboBoxDates3;
+        private System.Windows.Forms.ComboBox comboBoxSymbol1;
+        private System.Windows.Forms.TextBox textBoxColor2;
+        private System.Windows.Forms.ComboBox comboBoxSymbol2;
+        private System.Windows.Forms.TextBox textBoxSaturation2;
+        private System.Windows.Forms.TextBox textBoxBright2;
+        private System.Windows.Forms.ComboBox comboBoxSymbol3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox comboBoxColor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxRGB;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxV;
+        private System.Windows.Forms.TextBox textBoxS;
+        private System.Windows.Forms.TextBox textBoxH;
     }
 }
 
