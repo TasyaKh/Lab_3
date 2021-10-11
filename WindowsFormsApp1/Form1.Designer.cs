@@ -29,7 +29,6 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,33 +48,25 @@ namespace WindowsFormsApp1
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxRGB = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxV = new System.Windows.Forms.TextBox();
-            this.textBoxS = new System.Windows.Forms.TextBox();
-            this.textBoxH = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxRGB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBoxH = new System.Windows.Forms.TextBox();
+            this.textBoxS = new System.Windows.Forms.TextBox();
+            this.textBoxV = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(146, 104);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "toRGB";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -113,6 +104,7 @@ namespace WindowsFormsApp1
             this.textBoxColor1.TabIndex = 4;
             this.textBoxColor1.Tag = "1";
             this.textBoxColor1.TextChanged += new System.EventHandler(this.textBoxColor1_TextChanged);
+            this.textBoxColor1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxColor1_KeyDown);
             this.textBoxColor1.Leave += new System.EventHandler(this.textBoxColor1_Leave);
             // 
             // textBoxSaturation1
@@ -124,6 +116,7 @@ namespace WindowsFormsApp1
             this.textBoxSaturation1.TabIndex = 5;
             this.textBoxSaturation1.Tag = "3";
             this.textBoxSaturation1.TextChanged += new System.EventHandler(this.textBoxSaturation1_TextChanged);
+            this.textBoxSaturation1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSaturation1_KeyDown);
             this.textBoxSaturation1.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // textBoxBright1
@@ -135,11 +128,14 @@ namespace WindowsFormsApp1
             this.textBoxBright1.TabIndex = 6;
             this.textBoxBright1.Tag = "5";
             this.textBoxBright1.TextChanged += new System.EventHandler(this.textBoxBright1_TextChanged);
+            this.textBoxBright1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBright1_KeyDown);
             this.textBoxBright1.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // comboBoxDates1
             // 
+            this.comboBoxDates1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxDates1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxDates1.FormattingEnabled = true;
             this.comboBoxDates1.Items.AddRange(new object[] {
             "degr.",
@@ -154,7 +150,9 @@ namespace WindowsFormsApp1
             // 
             // comboBoxDates2
             // 
+            this.comboBoxDates2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxDates2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxDates2.FormattingEnabled = true;
             this.comboBoxDates2.Items.AddRange(new object[] {
             "%",
@@ -168,7 +166,9 @@ namespace WindowsFormsApp1
             // 
             // comboBoxDates3
             // 
+            this.comboBoxDates3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxDates3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDates3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxDates3.FormattingEnabled = true;
             this.comboBoxDates3.Items.AddRange(new object[] {
             "%",
@@ -182,7 +182,9 @@ namespace WindowsFormsApp1
             // 
             // comboBoxSymbol1
             // 
+            this.comboBoxSymbol1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxSymbol1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSymbol1.FormattingEnabled = true;
             this.comboBoxSymbol1.Items.AddRange(new object[] {
             "+",
@@ -203,11 +205,14 @@ namespace WindowsFormsApp1
             this.textBoxColor2.Size = new System.Drawing.Size(52, 22);
             this.textBoxColor2.TabIndex = 12;
             this.textBoxColor2.Tag = "2";
+            this.textBoxColor2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxColor2_KeyDown);
             this.textBoxColor2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // comboBoxSymbol2
             // 
+            this.comboBoxSymbol2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxSymbol2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSymbol2.FormattingEnabled = true;
             this.comboBoxSymbol2.Items.AddRange(new object[] {
             "+",
@@ -228,6 +233,7 @@ namespace WindowsFormsApp1
             this.textBoxSaturation2.Size = new System.Drawing.Size(52, 22);
             this.textBoxSaturation2.TabIndex = 14;
             this.textBoxSaturation2.Tag = "4";
+            this.textBoxSaturation2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSaturation2_KeyDown);
             this.textBoxSaturation2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // textBoxBright2
@@ -238,11 +244,14 @@ namespace WindowsFormsApp1
             this.textBoxBright2.Size = new System.Drawing.Size(52, 22);
             this.textBoxBright2.TabIndex = 16;
             this.textBoxBright2.Tag = "6";
+            this.textBoxBright2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBright2_KeyDown);
             this.textBoxBright2.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // comboBoxSymbol3
             // 
+            this.comboBoxSymbol3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxSymbol3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSymbol3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSymbol3.FormattingEnabled = true;
             this.comboBoxSymbol3.Items.AddRange(new object[] {
             "+",
@@ -257,7 +266,7 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.comboBoxDates1);
             this.panel1.Controls.Add(this.label1);
@@ -265,7 +274,8 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.comboBoxColor);
             this.panel1.Controls.Add(this.comboBoxSymbol1);
             this.panel1.Controls.Add(this.textBoxColor2);
-            this.panel1.Location = new System.Drawing.Point(21, 22);
+            this.panel1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel1.Location = new System.Drawing.Point(8, 21);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 107);
@@ -273,7 +283,9 @@ namespace WindowsFormsApp1
             // 
             // comboBoxColor
             // 
+            this.comboBoxColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxColor.FormattingEnabled = true;
             this.comboBoxColor.Items.AddRange(new object[] {
             "Red",
@@ -288,13 +300,15 @@ namespace WindowsFormsApp1
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.comboBoxDates2);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBoxSaturation1);
             this.panel2.Controls.Add(this.comboBoxSymbol2);
             this.panel2.Controls.Add(this.textBoxSaturation2);
-            this.panel2.Location = new System.Drawing.Point(21, 149);
+            this.panel2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel2.Location = new System.Drawing.Point(8, 132);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 107);
@@ -302,32 +316,64 @@ namespace WindowsFormsApp1
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.comboBoxDates3);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.textBoxBright1);
             this.panel3.Controls.Add(this.textBoxBright2);
             this.panel3.Controls.Add(this.comboBoxSymbol3);
-            this.panel3.Location = new System.Drawing.Point(21, 277);
+            this.panel3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel3.Location = new System.Drawing.Point(8, 243);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(273, 107);
             this.panel3.TabIndex = 19;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Location = new System.Drawing.Point(259, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(288, 359);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "HSV";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(6, 67);
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label4.Location = new System.Drawing.Point(3, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 17);
             this.label4.TabIndex = 21;
             this.label4.Text = "RGB";
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button1.Location = new System.Drawing.Point(141, 77);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 32);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "toRGB";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textBoxRGB
             // 
             this.textBoxRGB.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxRGB.Location = new System.Drawing.Point(55, 64);
+            this.textBoxRGB.Location = new System.Drawing.Point(50, 37);
             this.textBoxRGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRGB.Name = "textBoxRGB";
             this.textBoxRGB.ReadOnly = true;
@@ -336,65 +382,21 @@ namespace WindowsFormsApp1
             this.textBoxRGB.Tag = "1";
             this.textBoxRGB.Text = "rgb(0, 0, 0)";
             // 
-            // groupBox1
+            // label5
             // 
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Location = new System.Drawing.Point(270, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(316, 401);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "HSB";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBoxV);
-            this.groupBox2.Controls.Add(this.textBoxS);
-            this.groupBox2.Controls.Add(this.textBoxH);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBoxRGB);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(13, 151);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(239, 157);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "HSV->RGB";
-            // 
-            // textBoxV
-            // 
-            this.textBoxV.Location = new System.Drawing.Point(171, 30);
-            this.textBoxV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxV.Name = "textBoxV";
-            this.textBoxV.ReadOnly = true;
-            this.textBoxV.Size = new System.Drawing.Size(52, 22);
-            this.textBoxV.TabIndex = 26;
-            this.textBoxV.Tag = "2";
-            this.textBoxV.Text = "0";
-            this.textBoxV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxS
-            // 
-            this.textBoxS.Location = new System.Drawing.Point(113, 30);
-            this.textBoxS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxS.Name = "textBoxS";
-            this.textBoxS.ReadOnly = true;
-            this.textBoxS.Size = new System.Drawing.Size(52, 22);
-            this.textBoxS.TabIndex = 25;
-            this.textBoxS.Tag = "2";
-            this.textBoxS.Text = "0";
-            this.textBoxS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Location = new System.Drawing.Point(5, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "HSV";
             // 
             // textBoxH
             // 
-            this.textBoxH.Location = new System.Drawing.Point(55, 30);
+            this.textBoxH.Location = new System.Drawing.Point(50, 3);
             this.textBoxH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxH.Name = "textBoxH";
             this.textBoxH.ReadOnly = true;
@@ -404,38 +406,87 @@ namespace WindowsFormsApp1
             this.textBoxH.Text = "0";
             this.textBoxH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label5
+            // textBoxS
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(7, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 17);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "HSV";
+            this.textBoxS.Location = new System.Drawing.Point(108, 3);
+            this.textBoxS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxS.Name = "textBoxS";
+            this.textBoxS.ReadOnly = true;
+            this.textBoxS.Size = new System.Drawing.Size(52, 22);
+            this.textBoxS.TabIndex = 25;
+            this.textBoxS.Tag = "2";
+            this.textBoxS.Text = "0";
+            this.textBoxS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxV
+            // 
+            this.textBoxV.Location = new System.Drawing.Point(166, 3);
+            this.textBoxV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxV.Name = "textBoxV";
+            this.textBoxV.ReadOnly = true;
+            this.textBoxV.Size = new System.Drawing.Size(52, 22);
+            this.textBoxV.TabIndex = 26;
+            this.textBoxV.Tag = "2";
+            this.textBoxV.Text = "0";
+            this.textBoxV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.groupBox2.Controls.Add(this.panel4);
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Location = new System.Drawing.Point(12, 8);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(239, 359);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "HSV->RGB";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(126, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 21);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 114);
+            this.pictureBox1.Size = new System.Drawing.Size(137, 124);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.textBoxV);
+            this.panel4.Controls.Add(this.textBoxRGB);
+            this.panel4.Controls.Add(this.textBoxS);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.textBoxH);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel4.Location = new System.Drawing.Point(7, 161);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(225, 120);
+            this.panel4.TabIndex = 26;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 427);
-            this.Controls.Add(this.pictureBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(556, 375);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Лабораторная №3";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -444,15 +495,14 @@ namespace WindowsFormsApp1
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -472,15 +522,17 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxRGB;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxRGB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxH;
+        private System.Windows.Forms.TextBox textBoxS;
+        private System.Windows.Forms.TextBox textBoxV;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxV;
-        private System.Windows.Forms.TextBox textBoxS;
-        private System.Windows.Forms.TextBox textBoxH;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

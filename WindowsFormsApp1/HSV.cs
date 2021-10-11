@@ -10,11 +10,7 @@ namespace WindowsFormsApp1
     class HSV
     {
         private TypeColor CurrentColor;
-        private String messageAboutError;
-        public HSV()
-        {
-           
-        }
+        private String messageAboutError;  //Хранит различные сообщения об ошибках
 
         public double convertColorToDegrees(String typeDate,double colorValue) //Конвертировать цвет в градусы
         {
@@ -22,26 +18,30 @@ namespace WindowsFormsApp1
 
             switch (typeDate)
             {
-                case "degr.":
+                case "degr.": //Из градусов
                     colorDegrees = colorValue;
                     break;
-                case "%":
+                case "%":     //Из процентов
                     colorDegrees = 360d / 100 * colorValue;
                     break;
-                case "pt.":
+                case "pt.":   //Из 0 - 1
                     colorDegrees = 360d * colorValue;
                     break;
             }
             return colorDegrees;
         }
 
-        public double convertValueToPersent(String typeDate, double value)
+        public double convertValueToPersent(String typeDate, double value) //Перевод в проценты
         {
-            double toPersent = value;
+            double toPersent = value;                                      //Будет хранить число в процентах
 
             if(typeDate == "pt.")
             {
                 toPersent = 100 * value;
+            }
+            else if(typeDate == "grad.")
+            {
+                toPersent = value/(360/100);
             }
             return toPersent;
         }
@@ -64,7 +64,6 @@ namespace WindowsFormsApp1
         }
         public bool colorInItsRange(double colorValue, String currentColor, String typeDate)
         {        //Проверяем корректность диапазона цвета, в соответствии с выбранным типом цвета.
-            Checker check = new Checker();
             bool colorValid = false;
             double colorDegrees;
 
@@ -146,56 +145,16 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-        public int diapasonTypeOfColor(double value, string unit)   //Проверить входит ли число
-        {                                                           //в диапазон("degr", "%", "pt")  
-            int typeColor = 0;                                      //(0 - red, 1 - green, 2 - blue)
-            double valueInDegree = convertColorToDegrees(unit,value);
-
-            if (valueInDegree < 120 || valueInDegree == 360)
-            {
-                typeColor = 0;
-            }
-            else if (valueInDegree >= 120 && valueInDegree < 240)
-            {
-                typeColor = 1;
-            }
-            else if (valueInDegree >= 240 && valueInDegree < 360)
-            {
-                typeColor = 2;
-
-            }
-            else typeColor = -1;
-
-            return typeColor;
-        }
-       public String typeColorByIndex(int index)
-        {
-            String colorGrad = "";
-
-            switch (index)
-            {
-                case 0:
-                    colorGrad = "0";
-                    break;
-                case 1:
-                    colorGrad = "120";
-                    break;
-                case 2:
-                    colorGrad = "240";
-                    break;
-            }
-            return colorGrad;
-        }
+      
         public String getMessageError()
         {
             return messageAboutError;
         }
 
         public int[] HSVtoRGB(double colorInDegrees,double saturInPersent, double brightInPersent)
-        {
-            int[] RGB = null;
-
-            //int j = (int)Math.Round(212.5,0, MidpointRounding.ToEven);
+        {                     //Здесь происходит конвертация HSV to RGB
+            int[] RGB = null; //Здесь хранятся значения цветов(красный, синий, зеленый)
+                              //Обращаемся к википедии!
             int Hi = (int)((colorInDegrees / 60) % 6);
             float Vmin = (float)((100 - saturInPersent) * brightInPersent) / 100;
             float a = ((float)brightInPersent - Vmin) * (float)((colorInDegrees % 60) / 60);
@@ -205,7 +164,7 @@ namespace WindowsFormsApp1
 
             int V = (int)Math.Round(brightInPersent * 255 / 100, MidpointRounding.AwayFromZero);
             int _Vmin = (int)Math.Round((Vmin * 255 / 100), MidpointRounding.AwayFromZero);
-            int _Vinc = (int)Math.Round((Vinc * 255 / 100), MidpointRounding.AwayFromZero); //212,52 = 213
+            int _Vinc = (int)Math.Round((Vinc * 255 / 100), MidpointRounding.AwayFromZero);
             int _Vdec = (int)Math.Round((Vdec * 255 / 100), MidpointRounding.AwayFromZero);
 
             switch (Hi)
