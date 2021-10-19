@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace WindowsFormsApp1
+namespace Lab_3
 {
-    class HelperForm
+    public class HelperForm
     {
         private String messageAboutError = "";
         public bool diapasonValuesIsValid(string number, string unit, int numField) //Проверить входит ли число
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
                         if (value > 360 || value < 0)
                         {
                             messageAboutError = $"Ошибка!Недопустимое значение: {value} (диапазон допустимых значений [0;360])"+
-                                $"Проверьте поле №{numField}" ;
+                                $".Проверьте поле №{numField}" ;
                             isValid = false;
                         }
                         break;
@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
                         if (value > 100 || value < 0)
                         {
                             messageAboutError = $"Ошибка!Недопустимое значение: {value} (диапазон допустимых значений [0;100])" +
-                                $"Проверьте поле №{numField}";
+                                $".Проверьте поле №{numField}";
                             isValid = false;
                         }
                         break;
@@ -36,7 +36,15 @@ namespace WindowsFormsApp1
                         if (value > 1 || value < 0)
                         {
                             messageAboutError = $"Ошибка!Недопустимое значение: {value} (диапазон допустимых значений [0;1])" +
-                                $"Проверьте поле №{numField}";
+                                $".Проверьте поле №{numField}";
+                            isValid = false;
+                        }
+                        break;
+                    case "RGB": //"RGB"
+                        if (value > 255 || value < 0)
+                        {
+                            messageAboutError = $"Ошибка!Недопустимое значение: {value} (диапазон допустимых значений [0;255])" +
+                                $".Проверьте поле №{numField}";
                             isValid = false;
                         }
                         break;
@@ -48,36 +56,13 @@ namespace WindowsFormsApp1
             }
             catch (FormatException)
             {
-                messageAboutError = "Ошибка!Введены недопустимые символы: " + number + ".Введите числовой тип данных)" +
+                messageAboutError = "Ошибка!Введены недопустимые символы: " + number + ".Введите числовой тип данных." +
                     $"Проверьте поле №{numField}";
                 isValid = false;
 
             }
             return isValid;
         }
-
-        //public int getIndexColorByDegrees(double value, string unit)   //Получить индекс цвета в соответствии с диапазоном для бокса
-        //{                                                           //("degr", "%", "pt")  
-        //    int typeColor = 0;                                      //(0 - red, 1 - green, 2 - blue)
-        //    double valueInDegree = convertColorToDegrees(unit, value);
-
-        //    if (valueInDegree < 120 || valueInDegree == 360)
-        //    {
-        //        typeColor = 0;
-        //    }
-        //    else if (valueInDegree >= 120 && valueInDegree < 240)
-        //    {
-        //        typeColor = 1;
-        //    }
-        //    else if (valueInDegree >= 240 && valueInDegree < 360)
-        //    {
-        //        typeColor = 2;
-
-        //    }
-        //    else typeColor = -1;
-
-        //    return typeColor;
-        //}
         public String getColorByIndex(int index) //Получить цвет(градусы), в соответствии с тем, который был выбран возле поля цвета слева
         {
             String colorGrad = "";

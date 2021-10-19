@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp1
+namespace Lab_3
 {
     partial class Form1
     {
@@ -29,6 +29,8 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,27 +47,48 @@ namespace WindowsFormsApp1
             this.textBoxBright2 = new System.Windows.Forms.TextBox();
             this.comboBoxSymbol3 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Question = new System.Windows.Forms.Label();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxHSV = new System.Windows.Forms.GroupBox();
+            this.groupBoxRGB = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.numericUpDownBlue = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBoxRGB = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxH = new System.Windows.Forms.TextBox();
-            this.textBoxS = new System.Windows.Forms.TextBox();
-            this.textBoxV = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.numericUpDownGreen = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRed = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxConvert = new System.Windows.Forms.GroupBox();
+            this.labelRGB = new System.Windows.Forms.Label();
+            this.labelHSV = new System.Windows.Forms.Label();
+            this.pictureBoxReplacerRGB_HSV = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textBoxB = new System.Windows.Forms.TextBox();
+            this.textBoxG = new System.Windows.Forms.TextBox();
+            this.textBoxR = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxV = new System.Windows.Forms.TextBox();
+            this.textBoxS = new System.Windows.Forms.TextBox();
+            this.textBoxH = new System.Windows.Forms.TextBox();
+            this.buttonConverter = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.pictureBoxReplacerHSBtoRGB = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxHSV.SuspendLayout();
+            this.groupBoxRGB.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
+            this.groupBoxConvert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReplacerRGB_HSV)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReplacerHSBtoRGB)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -268,6 +291,7 @@ namespace WindowsFormsApp1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.Question);
             this.panel1.Controls.Add(this.comboBoxDates1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxColor1);
@@ -280,6 +304,18 @@ namespace WindowsFormsApp1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 107);
             this.panel1.TabIndex = 17;
+            // 
+            // Question
+            // 
+            this.Question.AutoSize = true;
+            this.Question.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.Question.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Question.ForeColor = System.Drawing.SystemColors.Window;
+            this.Question.Location = new System.Drawing.Point(-3, 30);
+            this.Question.Name = "Question";
+            this.Question.Size = new System.Drawing.Size(19, 20);
+            this.Question.TabIndex = 15;
+            this.Question.Text = "?";
             // 
             // comboBoxColor
             // 
@@ -330,93 +366,230 @@ namespace WindowsFormsApp1
             this.panel3.Size = new System.Drawing.Size(273, 107);
             this.panel3.TabIndex = 19;
             // 
-            // groupBox1
+            // groupBoxHSV
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(259, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(288, 359);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "HSV";
+            this.groupBoxHSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.groupBoxHSV.Controls.Add(this.panel3);
+            this.groupBoxHSV.Controls.Add(this.panel1);
+            this.groupBoxHSV.Controls.Add(this.panel2);
+            this.groupBoxHSV.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBoxHSV.Location = new System.Drawing.Point(266, 13);
+            this.groupBoxHSV.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxHSV.Name = "groupBoxHSV";
+            this.groupBoxHSV.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxHSV.Size = new System.Drawing.Size(288, 359);
+            this.groupBoxHSV.TabIndex = 23;
+            this.groupBoxHSV.TabStop = false;
+            this.groupBoxHSV.Text = "HSV";
+            // 
+            // groupBoxRGB
+            // 
+            this.groupBoxRGB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.groupBoxRGB.Controls.Add(this.panel5);
+            this.groupBoxRGB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBoxRGB.Location = new System.Drawing.Point(266, 380);
+            this.groupBoxRGB.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxRGB.Name = "groupBoxRGB";
+            this.groupBoxRGB.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxRGB.Size = new System.Drawing.Size(288, 359);
+            this.groupBoxRGB.TabIndex = 25;
+            this.groupBoxRGB.TabStop = false;
+            this.groupBoxRGB.Text = "RGB";
+            this.groupBoxRGB.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.numericUpDownBlue);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.numericUpDownGreen);
+            this.panel5.Controls.Add(this.numericUpDownRed);
+            this.panel5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel5.Location = new System.Drawing.Point(7, 21);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(273, 107);
+            this.panel5.TabIndex = 29;
+            // 
+            // numericUpDownBlue
+            // 
+            this.numericUpDownBlue.ForeColor = System.Drawing.Color.Blue;
+            this.numericUpDownBlue.Location = new System.Drawing.Point(163, 54);
+            this.numericUpDownBlue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownBlue.Name = "numericUpDownBlue";
+            this.numericUpDownBlue.Size = new System.Drawing.Size(58, 22);
+            this.numericUpDownBlue.TabIndex = 31;
+            this.numericUpDownBlue.Leave += new System.EventHandler(this.numericUpDownBlue_Leave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(3, 41);
+            this.label4.Location = new System.Drawing.Point(25, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 17);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "RGB";
+            this.label4.Size = new System.Drawing.Size(86, 17);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Цвет в RGB";
             // 
-            // button1
+            // numericUpDownGreen
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button1.Location = new System.Drawing.Point(141, 77);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "toRGB";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.numericUpDownGreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.numericUpDownGreen.Location = new System.Drawing.Point(97, 54);
+            this.numericUpDownGreen.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownGreen.Name = "numericUpDownGreen";
+            this.numericUpDownGreen.Size = new System.Drawing.Size(60, 22);
+            this.numericUpDownGreen.TabIndex = 30;
+            this.numericUpDownGreen.Leave += new System.EventHandler(this.numericUpDownGreen_Leave);
             // 
-            // textBoxRGB
+            // numericUpDownRed
             // 
-            this.textBoxRGB.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxRGB.Location = new System.Drawing.Point(50, 37);
-            this.textBoxRGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxRGB.Name = "textBoxRGB";
-            this.textBoxRGB.ReadOnly = true;
-            this.textBoxRGB.Size = new System.Drawing.Size(168, 25);
-            this.textBoxRGB.TabIndex = 22;
-            this.textBoxRGB.Tag = "1";
-            this.textBoxRGB.Text = "rgb(0, 0, 0)";
+            this.numericUpDownRed.ForeColor = System.Drawing.Color.Red;
+            this.numericUpDownRed.Location = new System.Drawing.Point(28, 54);
+            this.numericUpDownRed.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownRed.Name = "numericUpDownRed";
+            this.numericUpDownRed.Size = new System.Drawing.Size(63, 22);
+            this.numericUpDownRed.TabIndex = 29;
+            this.numericUpDownRed.Leave += new System.EventHandler(this.numericUpDownRed_Leave);
             // 
-            // label5
+            // groupBoxConvert
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(5, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 17);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "HSV";
+            this.groupBoxConvert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
+            this.groupBoxConvert.Controls.Add(this.labelRGB);
+            this.groupBoxConvert.Controls.Add(this.labelHSV);
+            this.groupBoxConvert.Controls.Add(this.pictureBoxReplacerRGB_HSV);
+            this.groupBoxConvert.Controls.Add(this.panel4);
+            this.groupBoxConvert.Controls.Add(this.pictureBoxColor);
+            this.groupBoxConvert.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBoxConvert.Location = new System.Drawing.Point(13, 13);
+            this.groupBoxConvert.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxConvert.Name = "groupBoxConvert";
+            this.groupBoxConvert.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxConvert.Size = new System.Drawing.Size(239, 359);
+            this.groupBoxConvert.TabIndex = 28;
+            this.groupBoxConvert.TabStop = false;
+            this.groupBoxConvert.Text = "HSV->RGB";
             // 
-            // textBoxH
+            // labelRGB
             // 
-            this.textBoxH.Location = new System.Drawing.Point(50, 3);
-            this.textBoxH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxH.Name = "textBoxH";
-            this.textBoxH.ReadOnly = true;
-            this.textBoxH.Size = new System.Drawing.Size(52, 22);
-            this.textBoxH.TabIndex = 24;
-            this.textBoxH.Tag = "2";
-            this.textBoxH.Text = "0";
-            this.textBoxH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.labelRGB.AutoSize = true;
+            this.labelRGB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.labelRGB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRGB.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelRGB.Location = new System.Drawing.Point(139, 160);
+            this.labelRGB.Name = "labelRGB";
+            this.labelRGB.Size = new System.Drawing.Size(79, 32);
+            this.labelRGB.TabIndex = 31;
+            this.labelRGB.Text = "RGB";
             // 
-            // textBoxS
+            // labelHSV
             // 
-            this.textBoxS.Location = new System.Drawing.Point(108, 3);
-            this.textBoxS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxS.Name = "textBoxS";
-            this.textBoxS.ReadOnly = true;
-            this.textBoxS.Size = new System.Drawing.Size(52, 22);
-            this.textBoxS.TabIndex = 25;
-            this.textBoxS.Tag = "2";
-            this.textBoxS.Text = "0";
-            this.textBoxS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.labelHSV.AutoSize = true;
+            this.labelHSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.labelHSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHSV.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelHSV.Location = new System.Drawing.Point(11, 160);
+            this.labelHSV.Name = "labelHSV";
+            this.labelHSV.Size = new System.Drawing.Size(76, 32);
+            this.labelHSV.TabIndex = 30;
+            this.labelHSV.Text = "HSV";
+            // 
+            // pictureBoxReplacerRGB_HSV
+            // 
+            this.pictureBoxReplacerRGB_HSV.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxReplacerRGB_HSV.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxReplacerRGB_HSV.Image")));
+            this.pictureBoxReplacerRGB_HSV.Location = new System.Drawing.Point(98, 167);
+            this.pictureBoxReplacerRGB_HSV.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.pictureBoxReplacerRGB_HSV.Name = "pictureBoxReplacerRGB_HSV";
+            this.pictureBoxReplacerRGB_HSV.Size = new System.Drawing.Size(38, 25);
+            this.pictureBoxReplacerRGB_HSV.TabIndex = 32;
+            this.pictureBoxReplacerRGB_HSV.TabStop = false;
+            this.pictureBoxReplacerRGB_HSV.Click += new System.EventHandler(this.pictureBoxReplacerRGB_HSV_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.textBoxB);
+            this.panel4.Controls.Add(this.textBoxG);
+            this.panel4.Controls.Add(this.textBoxR);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.textBoxV);
+            this.panel4.Controls.Add(this.textBoxS);
+            this.panel4.Controls.Add(this.textBoxH);
+            this.panel4.Controls.Add(this.buttonConverter);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.panel4.Location = new System.Drawing.Point(7, 200);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(225, 120);
+            this.panel4.TabIndex = 26;
+            // 
+            // textBoxB
+            // 
+            this.textBoxB.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBoxB.ForeColor = System.Drawing.Color.Blue;
+            this.textBoxB.Location = new System.Drawing.Point(166, 41);
+            this.textBoxB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxB.Name = "textBoxB";
+            this.textBoxB.ReadOnly = true;
+            this.textBoxB.Size = new System.Drawing.Size(52, 22);
+            this.textBoxB.TabIndex = 32;
+            this.textBoxB.Tag = "2";
+            this.textBoxB.Text = "0";
+            this.textBoxB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxG
+            // 
+            this.textBoxG.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBoxG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.textBoxG.Location = new System.Drawing.Point(108, 41);
+            this.textBoxG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxG.Name = "textBoxG";
+            this.textBoxG.ReadOnly = true;
+            this.textBoxG.Size = new System.Drawing.Size(52, 22);
+            this.textBoxG.TabIndex = 31;
+            this.textBoxG.Tag = "2";
+            this.textBoxG.Text = "0";
+            this.textBoxG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxR
+            // 
+            this.textBoxR.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBoxR.ForeColor = System.Drawing.Color.Red;
+            this.textBoxR.Location = new System.Drawing.Point(50, 41);
+            this.textBoxR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxR.Name = "textBoxR";
+            this.textBoxR.ReadOnly = true;
+            this.textBoxR.Size = new System.Drawing.Size(52, 22);
+            this.textBoxR.TabIndex = 30;
+            this.textBoxR.Tag = "2";
+            this.textBoxR.Text = "0";
+            this.textBoxR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Location = new System.Drawing.Point(5, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 17);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "RGB";
             // 
             // textBoxV
             // 
@@ -430,58 +603,84 @@ namespace WindowsFormsApp1
             this.textBoxV.Text = "0";
             this.textBoxV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // groupBox2
+            // textBoxS
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(126)))), ((int)(((byte)(174)))));
-            this.groupBox2.Controls.Add(this.panel4);
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(12, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(239, 359);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "HSV->RGB";
+            this.textBoxS.Location = new System.Drawing.Point(108, 3);
+            this.textBoxS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxS.Name = "textBoxS";
+            this.textBoxS.ReadOnly = true;
+            this.textBoxS.Size = new System.Drawing.Size(52, 22);
+            this.textBoxS.TabIndex = 25;
+            this.textBoxS.Tag = "2";
+            this.textBoxS.Text = "0";
+            this.textBoxS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox1
+            // textBoxH
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 124);
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
+            this.textBoxH.Location = new System.Drawing.Point(50, 3);
+            this.textBoxH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxH.Name = "textBoxH";
+            this.textBoxH.ReadOnly = true;
+            this.textBoxH.Size = new System.Drawing.Size(52, 22);
+            this.textBoxH.TabIndex = 24;
+            this.textBoxH.Tag = "2";
+            this.textBoxH.Text = "0";
+            this.textBoxH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel4
+            // buttonConverter
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(185)))), ((int)(((byte)(244)))));
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.textBoxV);
-            this.panel4.Controls.Add(this.textBoxRGB);
-            this.panel4.Controls.Add(this.textBoxS);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBoxH);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.panel4.Location = new System.Drawing.Point(7, 161);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(225, 120);
-            this.panel4.TabIndex = 26;
+            this.buttonConverter.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonConverter.Location = new System.Drawing.Point(141, 77);
+            this.buttonConverter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonConverter.Name = "buttonConverter";
+            this.buttonConverter.Size = new System.Drawing.Size(77, 32);
+            this.buttonConverter.TabIndex = 0;
+            this.buttonConverter.Text = "toRGB";
+            this.buttonConverter.UseVisualStyleBackColor = true;
+            this.buttonConverter.Click += new System.EventHandler(this.button1_ClickToRGB);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Location = new System.Drawing.Point(5, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "HSV";
+            // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxColor.Location = new System.Drawing.Point(50, 21);
+            this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(137, 124);
+            this.pictureBoxColor.TabIndex = 25;
+            this.pictureBoxColor.TabStop = false;
+            // 
+            // pictureBoxReplacerHSBtoRGB
+            // 
+            this.pictureBoxReplacerHSBtoRGB.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxReplacerHSBtoRGB.Location = new System.Drawing.Point(4, 25);
+            this.pictureBoxReplacerHSBtoRGB.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxReplacerHSBtoRGB.Name = "pictureBoxReplacerHSBtoRGB";
+            this.pictureBoxReplacerHSBtoRGB.Size = new System.Drawing.Size(42, 25);
+            this.pictureBoxReplacerHSBtoRGB.TabIndex = 29;
+            this.pictureBoxReplacerHSBtoRGB.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(556, 375);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(566, 380);
+            this.Controls.Add(this.groupBoxRGB);
+            this.Controls.Add(this.groupBoxConvert);
+            this.Controls.Add(this.groupBoxHSV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -493,11 +692,20 @@ namespace WindowsFormsApp1
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxHSV.ResumeLayout(false);
+            this.groupBoxRGB.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).EndInit();
+            this.groupBoxConvert.ResumeLayout(false);
+            this.groupBoxConvert.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReplacerRGB_HSV)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReplacerHSBtoRGB)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,17 +730,31 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBoxRGB;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxH;
-        private System.Windows.Forms.TextBox textBoxS;
-        private System.Windows.Forms.TextBox textBoxV;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBoxHSV;
+        private System.Windows.Forms.GroupBox groupBoxRGB;
+        private System.Windows.Forms.GroupBox groupBoxConvert;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox textBoxV;
+        private System.Windows.Forms.TextBox textBoxS;
+        private System.Windows.Forms.TextBox textBoxH;
+        private System.Windows.Forms.Button buttonConverter;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.NumericUpDown numericUpDownBlue;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numericUpDownGreen;
+        private System.Windows.Forms.NumericUpDown numericUpDownRed;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxB;
+        private System.Windows.Forms.TextBox textBoxG;
+        private System.Windows.Forms.TextBox textBoxR;
+        private System.Windows.Forms.PictureBox pictureBoxReplacerHSBtoRGB;
+        private System.Windows.Forms.Label labelRGB;
+        private System.Windows.Forms.Label labelHSV;
+        private System.Windows.Forms.PictureBox pictureBoxReplacerRGB_HSV;
+        private System.Windows.Forms.Label Question;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

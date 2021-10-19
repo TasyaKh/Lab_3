@@ -5,14 +5,14 @@ enum TypeColor
     RED, GREEN, BLUE
 }
 
-namespace WindowsFormsApp1
+namespace Lab_3
 {
-    class HSV
+    public class HSV
     {
         private TypeColor CurrentColor;
         private String messageAboutError;  //Хранит различные сообщения об ошибках
-
-        public double convertColorToDegrees(String typeDate,double colorValue) //Конвертировать цвет в градусы
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        public double convertToDegrees(String typeDate, double colorValue) //Конвертировать цвет в градусы
         {
             double colorDegrees = 0;
 
@@ -30,22 +30,22 @@ namespace WindowsFormsApp1
             }
             return colorDegrees;
         }
-
+        //---------------------------------------------------------------------------------------------------------------------------------------
         public double convertValueToPersent(String typeDate, double value) //Перевод в проценты
         {
             double toPersent = value;                                      //Будет хранить число в процентах
 
-            if(typeDate == "pt.")
+            if (typeDate == "pt.")
             {
                 toPersent = 100 * value;
             }
-            else if(typeDate == "grad.")
+            else if (typeDate == "grad.")
             {
-                toPersent = value/(360/100);
+                toPersent = value / (360 / 100);
             }
             return toPersent;
         }
-
+        //---------------------------------------------------------------------------------------------------------------------------------------
         public double plusMinusValue(double currentValue, String sign, double increaseOn) //Прибавить, вычесть цвет
         {
             double endValue = currentValue;
@@ -62,37 +62,39 @@ namespace WindowsFormsApp1
 
             return endValue;
         }
-        public bool colorInItsRange(double colorValue, String currentColor, String typeDate)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        public bool colorInItsRange(double colorDegrees, String currentColor)
         {        //Проверяем корректность диапазона цвета, в соответствии с выбранным типом цвета.
             bool colorValid = false;
-            double colorDegrees;
+            //double colorDegrees;
 
-                saveTypeColor(currentColor);                                //Сохранить тип текущего цвета(RGB)
-                colorDegrees = convertColorToDegrees(typeDate, colorValue); //Коневертируем цвет в градусы, для просмтрода диапазона
+            saveTypeColor(currentColor);                                 //Сохранить тип текущего цвета(RGB)
+            //colorDegrees = convertToDegrees(typeDate, colorValue);     //Коневертируем цвет в градусы, для просмтрода диапазона
 
-                switch (CurrentColor)                                       //Входит ли цвет в свой диапазон
-                {
-                    case TypeColor.RED:
-                        colorValid = diapasonIsRed(colorDegrees);  //Если занчение входит в диапазон красного цвета
-                        break;
-                    case TypeColor.GREEN:
-                        colorValid = diapasonIsGreen(colorDegrees); //Если занчение входит в диапазон зеленого цвета
-                        break;
-                    case TypeColor.BLUE:
-                        colorValid = diapasonIsBlue(colorDegrees);  //Если занчение входит в диапазон синего цвета
-                        break;
-                }
-            
+            switch (CurrentColor)                                        //Входит ли цвет в свой диапазон
+            {
+                case TypeColor.RED:
+                    colorValid = diapasonIsRed(colorDegrees);            //Если занчение входит в диапазон красного цвета
+                    break;
+                case TypeColor.GREEN:
+                    colorValid = diapasonIsGreen(colorDegrees);         //Если занчение входит в диапазон зеленого цвета
+                    break;
+                case TypeColor.BLUE:
+                    colorValid = diapasonIsBlue(colorDegrees);          //Если занчение входит в диапазон синего цвета
+                    break;
+            }
+
             return colorValid;
 
         }
-        private bool diapasonIsRed(double color)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        private bool diapasonIsRed(double color) //Проверяем входит ли цвет в диапазон красного
         {
-            bool colorValid =  false;
+            bool colorValid = false;
 
-            if (color < 120 || color == 360)
+            if ((color < 120 || color == 360) && color >= 0)
             {
-                colorValid =  true;
+                colorValid = true;
             }
             else
             {
@@ -101,7 +103,8 @@ namespace WindowsFormsApp1
 
             return colorValid;
         }
-        private bool diapasonIsGreen(double color)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        private bool diapasonIsGreen(double color) //Проверяем входит ли цвет в диапазон зеленого
         {
             bool colorValid = false;
 
@@ -115,7 +118,8 @@ namespace WindowsFormsApp1
             }
             return colorValid;
         }
-        private bool diapasonIsBlue(double color)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        private bool diapasonIsBlue(double color) //Проверяем входит ли цвет в диапазон синего
         {
             bool colorValid = false;
 
@@ -129,8 +133,8 @@ namespace WindowsFormsApp1
             }
             return colorValid;
         }
-
-        private void saveTypeColor(String typeColor)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        private void saveTypeColor(String typeColor) //Сохраняем тип текщего цвета в перечисление для удобства
         {
             switch (typeColor)
             {
@@ -145,13 +149,13 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-      
+        //---------------------------------------------------------------------------------------------------------------------------------------
         public String getMessageError()
         {
             return messageAboutError;
         }
-
-        public int[] HSVtoRGB(double colorInDegrees,double saturInPersent, double brightInPersent)
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        public int[] HSVtoRGB(double colorInDegrees, double saturInPersent, double brightInPersent)
         {                     //Здесь происходит конвертация HSV to RGB
             int[] RGB = null; //Здесь хранятся значения цветов(красный, синий, зеленый)
                               //Обращаемся к википедии!
@@ -159,7 +163,7 @@ namespace WindowsFormsApp1
             float Vmin = (float)((100 - saturInPersent) * brightInPersent) / 100;
             float a = ((float)brightInPersent - Vmin) * (float)((colorInDegrees % 60) / 60);
 
-            float Vinc =(Vmin + a);
+            float Vinc = (Vmin + a);
             float Vdec = ((float)brightInPersent - a);
 
             int V = (int)Math.Round(brightInPersent * 255 / 100, MidpointRounding.AwayFromZero);
@@ -189,6 +193,6 @@ namespace WindowsFormsApp1
                     break;
             }
             return RGB;
-        }
+        }  
     }
 }
